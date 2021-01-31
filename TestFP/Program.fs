@@ -35,8 +35,8 @@ let main argv =
         printfn "*************************************************"
         printfn "*       Model quality metrics evaluation         "
         printfn "*------------------------------------------------"
-        printfn $"*  R2 Score:       {metrics.RSquared}"
-        printfn $"*  RMS Error:      {metrics.RootMeanSquaredError}" 
+        printfn $"*  R2 Score:       %.2f{metrics.RSquared}"
+        printfn $"*  RMS Error:      %.2f{metrics.RootMeanSquaredError}" 
         printfn "*************************************************"
 
         printfn "DEBUG: Saving model..."
@@ -58,8 +58,8 @@ let main argv =
         printfn "*************************************************"
         printfn "*       Testing model with a sample              "
         printfn "*------------------------------------------------"
-        printfn $"*  Predicted fare: {sampleResult.FareAmount}" 
-        printfn $"*  Actual fare:    {sample.FareAmount}" 
+        printfn $"*  Predicted fare: %.2f{sampleResult.FareAmount}" 
+        printfn $"*  Actual fare:    %.2f{sample.FareAmount}" 
         printfn "*************************************************"
     with
     | Failure(msg) -> printfn "ERROR: %s" msg
