@@ -5,8 +5,8 @@ open Models
 
 [<EntryPoint>]
 let main argv =
-    let trainDataPath = __SOURCE_DIRECTORY__ + "/Data/train.csv"
-    let testDataPath = __SOURCE_DIRECTORY__ + "/Data/test.csv"
+    let trainDataPath = Path.Combine(__SOURCE_DIRECTORY__, "Data", "train.csv")
+    let testDataPath = Path.Combine(__SOURCE_DIRECTORY__ , "Data", "test.csv")
     let nonencodedColumns = [|"PassengerCount"; "TripDistance"|]
     let encodedColumns = [|"VendorId"; "RateCode"; "PaymentType"|]
 
@@ -63,5 +63,5 @@ let main argv =
         printfn "*************************************************"
     with
     | Failure(msg) -> printfn "ERROR: %s" msg
-    | :? Exception as ex -> printfn "ERROR: %s" ex.Message
+    | _ as ex -> printfn "ERROR: %s" ex.Message
     0
