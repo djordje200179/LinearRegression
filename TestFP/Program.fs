@@ -33,7 +33,7 @@ let main argv =
 
         printfn ""
         printfn "*************************************************"
-        printfn "*       Model quality metrics evaluation         "
+        printfn "*             Model quality metrics              "
         printfn "*------------------------------------------------"
         printfn $"*  R2 Score:       %.2f{metrics.RSquared}"
         printfn $"*  RMS Error:      %.2f{metrics.RootMeanSquaredError}" 
