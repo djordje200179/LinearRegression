@@ -36,7 +36,7 @@ namespace TestOOP {
 					if (input is "L" or "l") {
 						Console.WriteLine("DEBUG: Loading model...");
 
-						regressor = new LinearRegressor<TaxiTrip>( "model.lrm");
+						regressor = new LinearRegressor<TaxiTrip>("model.lrm");
 					} else if (input is "T" or "t") {
 						Console.WriteLine("DEBUG: Training model...");
 
@@ -54,8 +54,8 @@ namespace TestOOP {
 				Console.WriteLine("*************************************************");
 				Console.WriteLine("*       Model quality metrics evaluation         ");
 				Console.WriteLine("*------------------------------------------------");
-				Console.WriteLine($"*  R2 Score:       {metrics.RSquared, 0:F2}");
-				Console.WriteLine($"*  RMS Error:      {metrics.RootMeanSquaredError, 0:F2}");
+				Console.WriteLine($"*  R2 Score:       {metrics.RSquared,0:F2}");
+				Console.WriteLine($"*  RMS Error:      {metrics.RootMeanSquaredError,0:F2}");
 				Console.WriteLine("*************************************************");
 				#endregion
 
@@ -81,8 +81,8 @@ namespace TestOOP {
 				Console.WriteLine("*************************************************");
 				Console.WriteLine("*       Testing model with a sample              ");
 				Console.WriteLine("*------------------------------------------------");
-				Console.WriteLine($"*  Predicted fare: {sampleResult.FareAmount, 0:F2}");
-				Console.WriteLine($"*  Actual fare:    {sample.FareAmount, 0:F2}");
+				Console.WriteLine($"*  Predicted fare: {sampleResult.FareAmount,0:F2}");
+				Console.WriteLine($"*  Actual fare:    {sample.FareAmount,0:F2}");
 				Console.WriteLine("*************************************************");
 				#endregion
 			} catch (Exception e) {
