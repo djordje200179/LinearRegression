@@ -1,4 +1,4 @@
-﻿open LinearRegressor.LinearRegressor
+﻿open LinearRegression.LinearRegression
 open System.IO
 open System
 open Models

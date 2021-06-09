@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>LinearRegression</AssemblyName>
+    <RootNamespace>LinearRegression</RootNamespace>
+    <PackageId>LinearRegression</PackageId>
+    <Title>Linear Regression</Title>
+    <Authors>Đorđe Milanović</Authors>
+    <Company>Djordje Milanovic</Company>
+    <Product>Linear Regression</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ML" Version="1.5.4" />
+    <PackageReference Include="Microsoft.ML.FastTree" Version="1.5.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="LinearRegressionFunctions.fs" />
+    <Compile Include="LinearRegressionClass.fs" />
+  </ItemGroup>
+
+</Project>

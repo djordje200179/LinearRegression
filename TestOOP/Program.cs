@@ -1,7 +1,6 @@
-﻿using TestOOP.Models;
-using System;
+﻿using System;
 using System.IO;
-using LinearRegressor;
+using LinearRegression;
 
 namespace TestOOP {
 	internal static class Program {
@@ -21,13 +20,13 @@ namespace TestOOP {
 
 		private static void Main(string[] args) {
 			try {
-				LinearRegressor<TaxiTrip> regressor;
+				LinearRegression<TaxiTrip> regression;
 
 				#region Creating model
 				if (!File.Exists("model.lrm")) {
 					Console.WriteLine("DEBUG: Training model...");
 
-					regressor = new LinearRegressor<TaxiTrip>(_trainDataPath, _nonencodedColumns, _encodedColumns);
+					regression = new LinearRegression<TaxiTrip>(_trainDataPath, _nonencodedColumns, _encodedColumns);
 				} else {
 					Console.WriteLine("Trained model is found");
 					Console.Write("Do you want to load the existing model or train a new model? [L/T] ");
@@ -36,11 +35,11 @@ namespace TestOOP {
 					if (input is "L" or "l") {
 						Console.WriteLine("DEBUG: Loading model...");
 
-						regressor = new LinearRegressor<TaxiTrip>("model.lrm");
+						regression = new LinearRegression<TaxiTrip>("model.lrm");
 					} else if (input is "T" or "t") {
 						Console.WriteLine("DEBUG: Training model...");
 
-						regressor = new LinearRegressor<TaxiTrip>(_trainDataPath, _nonencodedColumns, _encodedColumns);
+						regression = new LinearRegression<TaxiTrip>(_trainDataPath, _nonencodedColumns, _encodedColumns);
 					} else
 						throw new ArgumentException("Invalid input");
 				}
@@ -48,7 +47,7 @@ namespace TestOOP {
 
 				#region Testing model
 				Console.WriteLine("DEBUG: Testing model...");
-				var metrics = regressor.TestModel(_testDataPath);
+				var metrics = regression.TestModel(_testDataPath);
 
 				Console.WriteLine();
 				Console.WriteLine("*************************************************");
@@ -61,7 +60,7 @@ namespace TestOOP {
 
 				#region Saving model
 				Console.WriteLine("DEBUG: Saving model...");
-				regressor.SaveModel("model.lrm");
+				regression.SaveModel("model.lrm");
 				#endregion
 
 				#region Testing model with a single sample
@@ -75,7 +74,7 @@ namespace TestOOP {
 					FareAmount = 15.5f
 				};
 
-				var sampleResult = regressor.SingleSamplePrediction<TaxiTripFarePrediction>(sample);
+				var sampleResult = regression.SingleSamplePrediction<TaxiTripFarePrediction>(sample);
 
 				Console.WriteLine();
 				Console.WriteLine("*************************************************");

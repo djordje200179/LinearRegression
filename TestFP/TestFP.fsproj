@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LinearRegressor\LinearRegressor.fsproj" />
+    <ProjectReference Include="..\LinearRegression\LinearRegression.fsproj" />
   </ItemGroup>
 
 </Project>

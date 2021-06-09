@@ -1,6 +1,6 @@
 ﻿using Microsoft.ML.Data;
 
-namespace TestOOP.Models {
+namespace TestOOP {
     public enum RateCode {
         Standard = 1,
         JFK,
