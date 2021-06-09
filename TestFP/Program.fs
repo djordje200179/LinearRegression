@@ -26,7 +26,8 @@ let main argv =
                 | "T" | "t" ->
                     printfn "DEBUG: Training model..." 
                     TrainModel<TaxiTrip> trainDataPath nonencodedColumns encodedColumns
-                | _ -> failwith "Invalid input"
+                | _ -> 
+                    failwith "Invalid input"
                 
         printfn "DEBUG: Testing model..."
         let metrics = TestModel<TaxiTrip> model testDataPath
@@ -62,6 +63,6 @@ let main argv =
         printfn $"*  Actual fare:    %.2f{sample.FareAmount}" 
         printfn "*************************************************"
     with
-    | Failure(msg) -> printfn "ERROR: %s" msg
-    | _ as ex -> printfn "ERROR: %s" ex.Message
+    | Failure(msg) -> printfn $"ERROR: %s{msg}"
+    | _ as ex -> printfn $"ERROR: %s{ex.Message}"
     0

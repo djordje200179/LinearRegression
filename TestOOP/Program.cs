@@ -31,17 +31,20 @@ namespace TestOOP {
 					Console.WriteLine("Trained model is found");
 					Console.Write("Do you want to load the existing model or train a new model? [L/T] ");
 
-					var input = Console.ReadLine();
-					if (input is "L" or "l") {
-						Console.WriteLine("DEBUG: Loading model...");
+					switch (Console.ReadLine()) {
+						case "L" or "l":
+							Console.WriteLine("DEBUG: Loading model...");
 
-						regression = new LinearRegression<TaxiTrip>("model.lrm");
-					} else if (input is "T" or "t") {
-						Console.WriteLine("DEBUG: Training model...");
+							regression = new LinearRegression<TaxiTrip>("model.lrm");
+							break;
+						case "T" or "t":
+							Console.WriteLine("DEBUG: Training model...");
 
-						regression = new LinearRegression<TaxiTrip>(_trainDataPath, _nonencodedColumns, _encodedColumns);
-					} else
-						throw new ArgumentException("Invalid input");
+							regression = new LinearRegression<TaxiTrip>(_trainDataPath, _nonencodedColumns, _encodedColumns);
+							break;
+						default:
+							throw new ArgumentException("Invalid input");
+					}
 				}
 				#endregion
 
@@ -66,7 +69,7 @@ namespace TestOOP {
 				#region Testing model with a single sample
 				var sample = new TaxiTrip() {
 					VendorId = "VTS",
-					RateCode = (int)RateCode.Standard,
+					RateCode = (int) RateCode.Standard,
 					PassengerCount = 1,
 					TripTime = 1140,
 					TripDistance = 3.75f,
